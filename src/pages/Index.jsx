@@ -108,10 +108,10 @@ const Index = () => {
         
         <div>
           <h3 className="text-lg font-semibold mb-2">Data 3</h3>
-          <div className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap justify-center sm:justify-between -mx-2">
             {['Title 1', 'Title 2', 'Title 3'].map((title, index) => (
-              <div key={title} className="text-center w-full sm:w-auto mb-4 sm:mb-0">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 120 120" className="mx-auto">
+              <div key={title} className="text-center w-1/2 sm:w-1/3 lg:w-auto px-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 120 120" className="mx-auto max-w-[120px]">
                   <circle cx="60" cy="60" r="60" fill="#e5d5eb" />
                   <path
                     d={`M 60 60 L 60 0 A 60 60 0 ${data3Values[index] > 50 ? 1 : 0} 1 ${
