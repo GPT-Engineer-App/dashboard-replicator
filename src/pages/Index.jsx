@@ -37,22 +37,14 @@ const Index = () => {
                     <rect x="0.4" y="40.5" width="144" height="71"/>
                   </clipPath>
                   <clipPath id={`clip-circle-${index}`}>
-                    <rect x="30.8" y="0.5" width="80" height="80"/>
-                  </clipPath>
-                  <clipPath id={`clip-inner-circle-${index}`}>
-                    <circle cx="70.8" cy="40.5" r="40"/>
+                    <circle cx="70.8" cy="40.5" r="35"/>
                   </clipPath>
                 </defs>
                 <g clipPath={`url(#clip-arrow-${index})`}>
                   <path fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} d="M116.9,40.5H10.6c-7.4,0-11.8,8.4-7.5,14.5l11.1,16c2.2,3.1,2.2,7.2,0,10.4l-11,16c-4.2,6.1,0.2,14.5,7.6,14.5h106.1c3,0,5.9-1.5,7.6-4l18.2-26.5c2.1-3.1,2.1-7.2,0-10.3l-18.2-26.5C122.7,42,119.9,40.5,116.9,40.5z"/>
                 </g>
-                <g clipPath={`url(#clip-circle-${index})`}>
-                  <g clipPath={`url(#clip-inner-circle-${index})`}>
-                    <path fill="#FEFBFF" d="M30.8,0.5h80v80h-80V0.5z"/>
-                    <circle cx="70.8" cy="40.5" r="40" fill="none" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="4"/>
-                  </g>
-                </g>
-                <image href={[step1Icon, step2Icon, step3Icon, step4Icon][index]} x="50.8" y="20.5" width="40" height="40" />
+                <circle cx="70.8" cy="40.5" r="35" fill="#FEFBFF" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="4"/>
+                <image href={[step1Icon, step2Icon, step3Icon, step4Icon][index]} x="45.8" y="15.5" width="50" height="50" clipPath={`url(#clip-circle-${index})`} />
               </svg>
               <div className="mt-2 text-sm font-medium">{step}</div>
             </div>
