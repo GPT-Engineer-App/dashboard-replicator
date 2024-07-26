@@ -45,10 +45,10 @@ const Index = () => {
           Infographic makes it easier for readers to absorb chunks of information. Shortly explain here what will this infographic cover.
         </p>
         
-        <div className="flex justify-between items-center relative">
+        <div className="flex flex-wrap justify-between items-center relative">
           {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
-            <div key={step} className={`flex flex-col items-center ${index * 25 <= gaugeValue ? 'opacity-100' : 'opacity-30'}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="145" height="112" viewBox="0 0 144.9 112">
+            <div key={step} className={`flex flex-col items-center w-1/2 sm:w-1/4 mb-4 sm:mb-0 ${index * 25 <= gaugeValue ? 'opacity-100' : 'opacity-30'}`}>
+              <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 144.9 112" className="max-w-[145px]">
                 <defs>
                   <clipPath id={`clip-arrow-${index}`}>
                     <rect x="0.4" y="40.5" width="144" height="71"/>
@@ -66,7 +66,7 @@ const Index = () => {
               <div className="mt-2 text-sm font-medium">{step}</div>
             </div>
           ))}
-          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 -z-10"></div>
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 -z-10 hidden sm:block"></div>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
@@ -138,8 +138,8 @@ const Index = () => {
             <DynamicGauge percentage={gaugeValue} />
           </div>
           <div className="relative w-full h-12 mt-4">
-            <div className="absolute w-full h-6 bg-gradient-to-r from-yellow-400 via-orange-500 via-purple-500 to-blue-600 rounded-full top-3"></div>
-            <div className="absolute h-6 bg-gradient-to-r from-yellow-400 via-orange-500 via-purple-500 to-blue-600 rounded-full top-3 opacity-50" style={{width: `${gaugeValue}%`}}></div>
+            <div className="absolute w-full h-6 bg-gray-200 rounded-full top-3"></div>
+            <div className="absolute h-6 bg-blue-600 rounded-full top-3" style={{width: `${gaugeValue}%`}}></div>
             <input
               type="range"
               min="0"
