@@ -28,7 +28,7 @@ const DynamicGauge = ({ percentage }) => {
               <rect width="29.5" height="127"/>
             </clipPath>
           </defs>
-          <g clipPath="url(#needleClip)" transform={`translate(0 ${pivotOffset}) rotate(180 14.75 0)`}>
+          <g clipPath="url(#needleClip)" transform={`translate(0 ${pivotOffset})`}>
             <path d="M28.3,113.2c0,7.7-6.3,13.9-14,13.8c-7.7,0-13.9-6.3-13.8-14L12.1,3.2c0-1,0.5-1.9,1.4-2.4c0.9-0.5,1.9-0.5,2.8,0c0.9,0.5,1.4,1.4,1.4,2.4L28.3,113.2z" fill="#563AEF"/>
           </g>
         </svg>
