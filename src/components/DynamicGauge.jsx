@@ -18,8 +18,9 @@ const DynamicGauge = ({ percentage }) => {
         <rect x="-21" width="252" fill="#ff5732" y="-10.5" height="125.999995" />
       </g>
       <g transform={`rotate(${angle}, 105, 105)`}>
-        <rect x="94.335938" y="19" width="51.664062" height="86" fill="#563aef" />
+        <path d="M 105,105 L 100,30 Q 105,20 110,30 Z" fill="#563aef" />
       </g>
+      <circle cx="105" cy="105" r="5" fill="#333" />
       <text x="105" y="120" textAnchor="middle" fill="#333" fontSize="14" fontWeight="bold">
         {clampedPercentage}%
       </text>
