@@ -122,8 +122,8 @@ const Index = () => {
                     fill={["#ffa945", "#ff5732", "#a97aff", "#563aef"][index]}
                   />
                   <circle cx="60" cy="60" r="40" fill="white" />
-                  <text x="60" y="67" textAnchor="middle" fill="#1e125d" fontSize="20" fontWeight="bold">
-                    {data1Values[index]}
+                  <text x="60" y="65" textAnchor="middle" fill="#1e125d" fontSize="24" fontWeight="bold">
+                    {data1Values[index]}%
                   </text>
                 </svg>
                 <div className="mt-1 text-sm font-medium">{title}</div>
