@@ -41,12 +41,23 @@ const Index = () => {
           <div>
             <h3 className="text-lg font-semibold mb-2">Data 1</h3>
             <div className="space-y-2">
-              {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((item) => (
+              {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((item, index) => (
                 <div key={item} className="flex items-center">
-                  <div className="w-full bg-gray-200 rounded-full h-2.5">
-                    <div className="bg-blue-600 h-2.5 rounded-full" style={{width: `${Math.random() * 100}%`}}></div>
+                  <span className="w-12 text-sm text-right mr-2">{item}</span>
+                  <div className="w-full bg-gray-200 h-6 flex">
+                    {['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-600'].map((color, i) => (
+                      <div
+                        key={i}
+                        className={`${color} h-full transition-all duration-500 ease-in-out`}
+                        style={{
+                          width: `${Math.min(100, Math.max(0, (gaugeValue - i * 25) * 4))}%`,
+                        }}
+                      ></div>
+                    ))}
                   </div>
-                  <span className="ml-2 text-sm">{item}</span>
+                  <span className="w-8 text-sm text-right ml-2">
+                    {Math.min(50, Math.round(gaugeValue / 2))}
+                  </span>
                 </div>
               ))}
             </div>
