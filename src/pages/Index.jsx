@@ -1,100 +1,112 @@
 // Update this page (the content is just a fallback if you fail to update the page)
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { ArrowUpRight, ArrowDownRight, DollarSign, Users, CreditCard, Activity } from "lucide-react";
-
-const data = [
-  { name: 'Jan', value: 400 },
-  { name: 'Feb', value: 300 },
-  { name: 'Mar', value: 200 },
-  { name: 'Apr', value: 278 },
-  { name: 'May', value: 189 },
-  { name: 'Jun', value: 239 },
-  { name: 'Jul', value: 349 },
-];
+import { Card } from "@/components/ui/card";
 
 const Index = () => {
   return (
-    <div className="p-6 space-y-6">
-      <h1 className="text-3xl font-bold">Dashboard</h1>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard title="Total Revenue" value="$45,231.89" icon={DollarSign} trend="up" percentage="20.1%" />
-        <StatCard title="Subscriptions" value="2,350" icon={Users} trend="down" percentage="1.5%" />
-        <StatCard title="Sales" value="12,234" icon={CreditCard} trend="up" percentage="12.5%" />
-        <StatCard title="Active Users" value="1,234" icon={Activity} trend="up" percentage="4.3%" />
-      </div>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Overview</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <ResponsiveContainer width="100%" height={300}>
-            <LineChart data={data}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Line type="monotone" dataKey="value" stroke="#8884d8" />
-            </LineChart>
-          </ResponsiveContainer>
-        </CardContent>
-      </Card>
-
-      <Card>
-        <CardHeader>
-          <CardTitle>Recent Sales</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <RecentSalesTable />
-        </CardContent>
-      </Card>
-    </div>
-  );
-};
-
-const StatCard = ({ title, value, icon: Icon, trend, percentage }) => {
-  const TrendIcon = trend === 'up' ? ArrowUpRight : ArrowDownRight;
-  const trendColor = trend === 'up' ? 'text-green-600' : 'text-red-600';
-
-  return (
-    <Card>
-      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-        <CardTitle className="text-sm font-medium">{title}</CardTitle>
-        <Icon className="h-4 w-4 text-muted-foreground" />
-      </CardHeader>
-      <CardContent>
-        <div className="text-2xl font-bold">{value}</div>
-        <p className={`text-xs ${trendColor} flex items-center`}>
-          <TrendIcon className="h-4 w-4 mr-1" />
-          {percentage}
-        </p>
-      </CardContent>
-    </Card>
-  );
-};
-
-const RecentSalesTable = () => {
-  const sales = [
-    { name: 'John Doe', email: 'john@example.com', amount: '$250.00' },
-    { name: 'Jane Smith', email: 'jane@example.com', amount: '$120.00' },
-    { name: 'Bob Johnson', email: 'bob@example.com', amount: '$350.00' },
-    { name: 'Alice Brown', email: 'alice@example.com', amount: '$180.00' },
-  ];
-
-  return (
-    <div className="space-y-8">
-      {sales.map((sale, index) => (
-        <div key={index} className="flex items-center">
-          <div className="space-y-1">
-            <p className="text-sm font-medium leading-none">{sale.name}</p>
-            <p className="text-sm text-muted-foreground">{sale.email}</p>
-          </div>
-          <div className="ml-auto font-medium">{sale.amount}</div>
+    <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-100 to-pink-100">
+      <Card className="w-full max-w-3xl p-8 space-y-6 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-16 h-16 bg-blue-500 transform -translate-x-1/2 -translate-y-1/2 rounded-br-full"></div>
+        <div className="absolute top-0 right-0 w-16 h-16 bg-red-500 transform translate-x-1/2 -translate-y-1/2 rounded-bl-full"></div>
+        <div className="absolute bottom-0 left-0 w-16 h-16 bg-blue-500 transform -translate-x-1/2 translate-y-1/2 rounded-tr-full"></div>
+        <div className="absolute bottom-0 right-0 w-16 h-16 bg-red-500 transform translate-x-1/2 translate-y-1/2 rounded-tl-full"></div>
+        
+        <div className="text-center space-y-2">
+          <div className="bg-indigo-600 text-white px-4 py-1 rounded-full inline-block">It's all about the</div>
+          <h1 className="text-4xl font-bold text-indigo-900">Informational Data Infographic</h1>
         </div>
-      ))}
+        
+        <p className="text-center text-gray-600">
+          Infographic makes it easier for readers to absorb chunks of information. Shortly explain here what will this infographic cover.
+        </p>
+        
+        <div className="flex justify-between items-center">
+          {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
+            <div key={step} className="flex flex-col items-center">
+              <div className={`w-16 h-16 rounded-full flex items-center justify-center ${['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-400'][index]}`}>
+                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <div className="mt-2 text-sm font-medium">{step}</div>
+            </div>
+          ))}
+        </div>
+        
+        <div className="grid grid-cols-2 gap-6">
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Data 2</h3>
+            <div className="space-y-2">
+              {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((item) => (
+                <div key={item} className="flex items-center">
+                  <div className="w-full bg-gray-200 rounded-full h-2.5">
+                    <div className="bg-blue-600 h-2.5 rounded-full" style={{width: `${Math.random() * 100}%`}}></div>
+                  </div>
+                  <span className="ml-2 text-sm">{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-2">Data 2</h3>
+            <div className="grid grid-cols-5 gap-1">
+              {Array(20).fill().map((_, i) => (
+                <svg key={i} className={`w-6 h-6 ${i < 15 ? 'text-red-500' : 'text-yellow-500'}`} fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                </svg>
+              ))}
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Data 4</h3>
+          <div className="flex justify-between">
+            {['Title 1', 'Title 2', 'Title 3'].map((title, index) => (
+              <div key={title} className="text-center">
+                <svg className="w-24 h-24 mx-auto" viewBox="0 0 36 36">
+                  <path
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke="#444"
+                    strokeWidth="1"
+                  />
+                  <path
+                    d="M18 2.0845
+                      a 15.9155 15.9155 0 0 1 0 31.831
+                      a 15.9155 15.9155 0 0 1 0 -31.831"
+                    fill="none"
+                    stroke={["#ffa500", "#ff6347", "#4169e1"][index]}
+                    strokeWidth="3"
+                    strokeDasharray={`${[40, 64, 72][index]}, 100`}
+                  />
+                  <text x="18" y="20.35" className="text-xs font-medium" textAnchor="middle">
+                    {[40, 64, 72][index]}%
+                  </text>
+                </svg>
+                <div className="mt-2">{title}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div>
+          <h3 className="text-lg font-semibold mb-2">Data 5</h3>
+          <div className="relative h-32">
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
+                <div className="w-3/4 h-full bg-gradient-to-r from-red-500 to-yellow-500"></div>
+              </div>
+            </div>
+            <div className="absolute top-0 left-3/4 -mt-1 transform -translate-x-1/2">
+              <div className="w-2 h-8 bg-blue-600"></div>
+              <div className="w-4 h-4 bg-blue-600 rounded-full -mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </Card>
     </div>
   );
 };
