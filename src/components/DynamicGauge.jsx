@@ -7,7 +7,7 @@ const DynamicGauge = ({ percentage }) => {
   // Calculate the angle for the gauge needle
   const angle = (clampedPercentage / 100) * 180 - 90;
 
-  // Calculate the pivot point (1/8 from the bottom of the needle)
+  // Calculate the pivot point (7/8 from the top of the needle)
   const needleHeight = 127;
   const pivotOffset = needleHeight * 7/8;
 
