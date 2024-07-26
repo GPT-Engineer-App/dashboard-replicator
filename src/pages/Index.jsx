@@ -18,13 +18,13 @@ import step4Icon from "/placeholder.svg";
 const Index = () => {
   const [gaugeValue, setGaugeValue] = useState(75); // Initial value for the gauge
 
-  // Calculate dynamic values for Data 3
-  const data3Values = useMemo(() => {
-    const baseValue = gaugeValue / 100;
+  // Calculate dynamic values for Data 1 and Data 3
+  const data1Values = useMemo(() => {
     return [
-      Math.min(100, Math.round((baseValue + Math.random() * 0.2) * 100)),
-      Math.min(100, Math.round((baseValue + Math.random() * 0.3 - 0.1) * 100)),
-      Math.min(100, Math.round((baseValue + Math.random() * 0.4 - 0.2) * 100))
+      Math.min(25, Math.max(0, Math.round((gaugeValue - 0) / 4))),
+      Math.min(25, Math.max(0, Math.round((gaugeValue - 25) / 4))),
+      Math.min(25, Math.max(0, Math.round((gaugeValue - 50) / 4))),
+      Math.min(25, Math.max(0, Math.round((gaugeValue - 75) / 4)))
     ];
   }, [gaugeValue]);
 
@@ -80,12 +80,12 @@ const Index = () => {
                     <div
                       className={`${['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-600'][index]} h-full transition-all duration-500 ease-in-out ${index === 3 ? 'rounded-r-full' : ''}`}
                       style={{
-                        width: `${Math.min(100, Math.max(0, (gaugeValue - index * 25) * 4))}%`,
+                        width: `${data1Values[index] * 4}%`,
                       }}
                     ></div>
                   </div>
                   <span className="w-8 text-xs sm:text-sm text-right ml-2">
-                    {Math.min(25, Math.max(0, Math.round((gaugeValue - index * 25) / 4)))}
+                    {data1Values[index]}
                   </span>
                 </div>
               ))}
@@ -109,21 +109,21 @@ const Index = () => {
         <div>
           <h3 className="text-lg font-semibold mb-2">Data 3</h3>
           <div className="flex flex-wrap justify-center sm:justify-between -mx-2">
-            {['Title 1', 'Title 2', 'Title 3'].map((title, index) => (
-              <div key={title} className="text-center w-1/2 sm:w-1/3 lg:w-auto px-2 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 120 120" className="mx-auto max-w-[120px]">
+            {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((title, index) => (
+              <div key={title} className="text-center w-1/2 sm:w-1/4 lg:w-auto px-2 mb-4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 120 120" className="mx-auto max-w-[100px]">
                   <circle cx="60" cy="60" r="60" fill="#e5d5eb" />
                   <path
-                    d={`M 60 60 L 60 0 A 60 60 0 ${data3Values[index] > 50 ? 1 : 0} 1 ${
-                      60 + 60 * Math.sin((data3Values[index] / 100) * 2 * Math.PI)
+                    d={`M 60 60 L 60 0 A 60 60 0 ${data1Values[index] > 12.5 ? 1 : 0} 1 ${
+                      60 + 60 * Math.sin((data1Values[index] / 25) * 2 * Math.PI)
                     } ${
-                      60 - 60 * Math.cos((data3Values[index] / 100) * 2 * Math.PI)
+                      60 - 60 * Math.cos((data1Values[index] / 25) * 2 * Math.PI)
                     } Z`}
-                    fill={["#ffa945", "#ff6347", "#4169e1"][index]}
+                    fill={["#ffa945", "#ff5732", "#a97aff", "#563aef"][index]}
                   />
                   <circle cx="60" cy="60" r="40" fill="white" />
                   <text x="60" y="67" textAnchor="middle" fill="#1e125d" fontSize="20" fontWeight="bold">
-                    {data3Values[index]}%
+                    {data1Values[index]}
                   </text>
                 </svg>
                 <div className="mt-2 text-sm font-medium">{title}</div>
