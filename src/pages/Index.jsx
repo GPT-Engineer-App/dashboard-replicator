@@ -1,8 +1,12 @@
 // Update this page (the content is just a fallback if you fail to update the page)
 
 import { Card } from "@/components/ui/card";
+import DynamicGauge from "@/components/DynamicGauge";
+import { useState } from "react";
 
 const Index = () => {
+  const [gaugeValue, setGaugeValue] = useState(75); // Initial value for the gauge
+
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-100 to-pink-100">
       <Card className="w-full max-w-3xl p-8 space-y-6 relative overflow-hidden">
@@ -35,7 +39,7 @@ const Index = () => {
         
         <div className="grid grid-cols-2 gap-6">
           <div>
-            <h3 className="text-lg font-semibold mb-2">Data 2</h3>
+            <h3 className="text-lg font-semibold mb-2">Data 1</h3>
             <div className="space-y-2">
               {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((item) => (
                 <div key={item} className="flex items-center">
@@ -60,7 +64,7 @@ const Index = () => {
         </div>
         
         <div>
-          <h3 className="text-lg font-semibold mb-2">Data 4</h3>
+          <h3 className="text-lg font-semibold mb-2">Data 3</h3>
           <div className="flex justify-between">
             {['Title 1', 'Title 2', 'Title 3'].map((title, index) => (
               <div key={title} className="text-center">
@@ -93,18 +97,18 @@ const Index = () => {
         </div>
         
         <div>
-          <h3 className="text-lg font-semibold mb-2">Data 5</h3>
-          <div className="relative h-32">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
-                <div className="w-3/4 h-full bg-gradient-to-r from-red-500 to-yellow-500"></div>
-              </div>
-            </div>
-            <div className="absolute top-0 left-3/4 -mt-1 transform -translate-x-1/2">
-              <div className="w-2 h-8 bg-blue-600"></div>
-              <div className="w-4 h-4 bg-blue-600 rounded-full -mt-2"></div>
-            </div>
+          <h3 className="text-lg font-semibold mb-2">Data 4</h3>
+          <div className="flex justify-center items-center">
+            <DynamicGauge percentage={gaugeValue} />
           </div>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={gaugeValue}
+            onChange={(e) => setGaugeValue(Number(e.target.value))}
+            className="w-full mt-4"
+          />
         </div>
       </Card>
     </div>
