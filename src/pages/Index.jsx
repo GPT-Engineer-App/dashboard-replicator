@@ -112,17 +112,17 @@ const Index = () => {
             {['Title 1', 'Title 2', 'Title 3'].map((title, index) => (
               <div key={title} className="text-center">
                 <svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" className="mx-auto">
-                  <circle cx="60" cy="60" r="54" fill="#e5d5eb" />
+                  <circle cx="60" cy="60" r="60" fill="#e5d5eb" />
                   <path
-                    d={`M 60 60 L 60 6 A 54 54 0 ${data3Values[index] > 50 ? 1 : 0} 1 ${
-                      60 + 54 * Math.sin((data3Values[index] / 100) * 2 * Math.PI)
+                    d={`M 60 60 L 60 0 A 60 60 0 ${data3Values[index] > 50 ? 1 : 0} 1 ${
+                      60 + 60 * Math.sin((data3Values[index] / 100) * 2 * Math.PI)
                     } ${
-                      60 - 54 * Math.cos((data3Values[index] / 100) * 2 * Math.PI)
+                      60 - 60 * Math.cos((data3Values[index] / 100) * 2 * Math.PI)
                     } Z`}
                     fill={["#ffa945", "#ff6347", "#4169e1"][index]}
                   />
-                  <circle cx="60" cy="60" r="50" fill="white" />
-                  <text x="60" y="70" textAnchor="middle" fill="#1e125d" fontSize="24" fontWeight="bold">
+                  <circle cx="60" cy="60" r="40" fill="white" />
+                  <text x="60" y="67" textAnchor="middle" fill="#1e125d" fontSize="20" fontWeight="bold">
                     {data3Values[index]}%
                   </text>
                 </svg>
