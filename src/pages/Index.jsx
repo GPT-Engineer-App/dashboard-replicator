@@ -37,7 +37,7 @@ const Index = () => {
         
         <div className="flex justify-between items-center relative">
           {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
-            <div key={step} className="flex flex-col items-center">
+            <div key={step} className={`flex flex-col items-center ${index * 25 <= gaugeValue ? 'opacity-100' : 'opacity-30'}`}>
               <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="145" height="112" viewBox="0 0 144.9 112">
                 <defs>
                   <clipPath id={`clip-arrow-${index}`}>
@@ -64,21 +64,18 @@ const Index = () => {
             <h3 className="text-lg font-semibold mb-2">Data 1</h3>
             <div className="space-y-2">
               {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((item, index) => (
-                <div key={item} className="flex items-center">
+                <div key={item} className={`flex items-center ${index * 25 <= gaugeValue ? 'opacity-100' : 'opacity-30'}`}>
                   <span className="w-12 text-sm text-right mr-2">{item}</span>
                   <div className="w-full bg-gray-200 h-6 flex rounded-r-full overflow-hidden">
-                    {['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-600'].map((color, i) => (
-                      <div
-                        key={i}
-                        className={`${color} h-full transition-all duration-500 ease-in-out ${i === 3 ? 'rounded-r-full' : ''}`}
-                        style={{
-                          width: `${Math.min(100, Math.max(0, (gaugeValue - i * 25) * 4))}%`,
-                        }}
-                      ></div>
-                    ))}
+                    <div
+                      className={`${['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-600'][index]} h-full transition-all duration-500 ease-in-out ${index === 3 ? 'rounded-r-full' : ''}`}
+                      style={{
+                        width: `${Math.min(100, Math.max(0, (gaugeValue - index * 25) * 4))}%`,
+                      }}
+                    ></div>
                   </div>
                   <span className="w-8 text-sm text-right ml-2">
-                    {Math.min(50, Math.round(gaugeValue / 2))}
+                    {Math.min(25, Math.max(0, Math.round((gaugeValue - index * 25) / 4)))}
                   </span>
                 </div>
               ))}
