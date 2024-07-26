@@ -2,7 +2,7 @@
 
 import { Card } from "@/components/ui/card";
 import DynamicGauge from "@/components/DynamicGauge";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 
 const stepIcons = [
   "https://ik.imagekit.io/libralab/Sandbox/001_Dashboard/step1.png",
@@ -17,6 +17,16 @@ import step4Icon from "/placeholder.svg";
 
 const Index = () => {
   const [gaugeValue, setGaugeValue] = useState(75); // Initial value for the gauge
+
+  // Calculate dynamic values for Data 3
+  const data3Values = useMemo(() => {
+    const baseValue = gaugeValue / 100;
+    return [
+      Math.round((baseValue + Math.random() * 0.2) * 100),
+      Math.round((baseValue + Math.random() * 0.3 - 0.1) * 100),
+      Math.round((baseValue + Math.random() * 0.4 - 0.2) * 100)
+    ];
+  }, [gaugeValue]);
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-100 to-pink-100">
@@ -117,7 +127,7 @@ const Index = () => {
                     <path fill={["#ffa945", "#ff6347", "#4169e1"][index]} d="M 0 0 L 119.882812 0 L 119.882812 119.882812 L 0 119.882812 Z M 0 0 " />
                   </g>
                   <text x="60" y="70" textAnchor="middle" fill="#1e125d" fontSize="24" fontWeight="bold">
-                    {[40, 64, 72][index]}%
+                    {data3Values[index]}%
                   </text>
                 </svg>
                 <div className="mt-2 text-sm font-medium">{title}</div>
