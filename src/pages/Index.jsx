@@ -3,6 +3,10 @@
 import { Card } from "@/components/ui/card";
 import DynamicGauge from "@/components/DynamicGauge";
 import { useState } from "react";
+import step1Icon from "/placeholder.svg";
+import step2Icon from "/placeholder.svg";
+import step3Icon from "/placeholder.svg";
+import step4Icon from "/placeholder.svg";
 
 const Index = () => {
   const [gaugeValue, setGaugeValue] = useState(75); // Initial value for the gauge
@@ -48,9 +52,7 @@ const Index = () => {
                     <circle cx="70.8" cy="40.5" r="40" fill="none" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="4"/>
                   </g>
                 </g>
-                <text x="70.8" y="50.5" textAnchor="middle" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} fontSize="24" fontWeight="bold">
-                  {index + 1}
-                </text>
+                <image href={[step1Icon, step2Icon, step3Icon, step4Icon][index]} x="50.8" y="20.5" width="40" height="40" />
               </svg>
               <div className="mt-2 text-sm font-medium">{step}</div>
             </div>
