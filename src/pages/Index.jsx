@@ -137,18 +137,21 @@ const Index = () => {
           <div className="flex justify-center items-center mb-4">
             <DynamicGauge percentage={gaugeValue} />
           </div>
-          <div className="relative w-full h-12">
-            <div className="absolute w-full h-6 bg-gray-200 rounded-full top-3"></div>
-            <div className="absolute h-6 bg-blue-600 rounded-full top-3" style={{width: `${gaugeValue}%`}}></div>
+          <div className="relative w-full h-16">
+            <div className="absolute w-full h-6 bg-gray-200 rounded-full top-5"></div>
+            <div className="absolute h-6 bg-blue-600 rounded-full top-5" style={{width: `${gaugeValue}%`}}></div>
             <input
               type="range"
               min="0"
               max="100"
               value={gaugeValue}
               onChange={(e) => setGaugeValue(Number(e.target.value))}
-              className="absolute w-full top-0 h-12 opacity-0 cursor-pointer"
+              className="absolute w-full top-0 h-16 opacity-0 cursor-pointer z-10"
             />
-            <div className="absolute w-8 h-8 bg-white border-4 border-blue-600 rounded-full top-2 -ml-4 shadow-md" style={{left: `${gaugeValue}%`}}></div>
+            <div 
+              className="absolute w-10 h-10 bg-white border-4 border-blue-600 rounded-full top-3 -ml-5 shadow-md cursor-grab active:cursor-grabbing"
+              style={{left: `${gaugeValue}%`}}
+            ></div>
           </div>
         </div>
       </Card>
