@@ -24,17 +24,24 @@ const Index = () => {
           Infographic makes it easier for readers to absorb chunks of information. Shortly explain here what will this infographic cover.
         </p>
         
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center relative">
           {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
             <div key={step} className="flex flex-col items-center">
-              <div className={`w-16 h-16 rounded-full flex items-center justify-center ${['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-400'][index]}`}>
-                <svg className="w-8 h-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 420 83.999999">
+                <g clipPath={`url(#clip-path-${index})`}>
+                  <path fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} d="M89.34375 30L9.632812 30C4.066406 30 0.792969 36.292969 3.976562 40.894531L12.28125 52.886719C13.902344 55.226562 13.910156 58.324219 12.304688 60.671875L4.085938 72.683594C0.933594 77.28125 4.214844 83.542969 9.769531 83.542969L89.34375 83.542969C91.613281 83.542969 93.734375 82.417969 95.027344 80.542969L108.640625 60.648438C110.238281 58.316406 110.238281 55.234375 108.640625 52.894531L95.027344 33C93.734375 31.125 91.609375 30 89.34375 30Z" />
+                </g>
+                <g clipPath={`url(#circle-clip-path-${index})`}>
+                  <circle cx="40" cy="30" r="30" fill="#fefbff" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="3" />
+                </g>
+                <text x="40" y="36" textAnchor="middle" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} fontSize="24" fontWeight="bold">
+                  {index + 1}
+                </text>
+              </svg>
               <div className="mt-2 text-sm font-medium">{step}</div>
             </div>
           ))}
+          <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 -z-10"></div>
         </div>
         
         <div className="grid grid-cols-2 gap-6">
@@ -44,11 +51,11 @@ const Index = () => {
               {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((item, index) => (
                 <div key={item} className="flex items-center">
                   <span className="w-12 text-sm text-right mr-2">{item}</span>
-                  <div className="w-full bg-gray-200 h-6 flex">
+                  <div className="w-full bg-gray-200 h-6 flex rounded-r-full overflow-hidden">
                     {['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-600'].map((color, i) => (
                       <div
                         key={i}
-                        className={`${color} h-full transition-all duration-500 ease-in-out`}
+                        className={`${color} h-full transition-all duration-500 ease-in-out ${i === 3 ? 'rounded-r-full' : ''}`}
                         style={{
                           width: `${Math.min(100, Math.max(0, (gaugeValue - i * 25) * 4))}%`,
                         }}
