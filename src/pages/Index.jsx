@@ -3,6 +3,13 @@
 import { Card } from "@/components/ui/card";
 import DynamicGauge from "@/components/DynamicGauge";
 import { useState } from "react";
+
+const stepIcons = [
+  "https://ik.imagekit.io/libralab/Sandbox/001_Dashboard/step1.png",
+  "https://ik.imagekit.io/libralab/Sandbox/001_Dashboard/step2.png",
+  "https://ik.imagekit.io/libralab/Sandbox/001_Dashboard/step3.png",
+  "https://ik.imagekit.io/libralab/Sandbox/001_Dashboard/step4.png"
+];
 import step1Icon from "/placeholder.svg";
 import step2Icon from "/placeholder.svg";
 import step3Icon from "/placeholder.svg";
@@ -44,7 +51,7 @@ const Index = () => {
                   <path fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} d="M116.9,40.5H10.6c-7.4,0-11.8,8.4-7.5,14.5l11.1,16c2.2,3.1,2.2,7.2,0,10.4l-11,16c-4.2,6.1,0.2,14.5,7.6,14.5h106.1c3,0,5.9-1.5,7.6-4l18.2-26.5c2.1-3.1,2.1-7.2,0-10.3l-18.2-26.5C122.7,42,119.9,40.5,116.9,40.5z"/>
                 </g>
                 <circle cx="70.8" cy="40.5" r="35" fill="#FEFBFF" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="4"/>
-                <image href={[step1Icon, step2Icon, step3Icon, step4Icon][index]} x="45.8" y="15.5" width="50" height="50" clipPath={`url(#clip-circle-${index})`} />
+                <image href={stepIcons[index]} x="45.8" y="15.5" width="50" height="50" clipPath={`url(#clip-circle-${index})`} />
               </svg>
               <div className="mt-2 text-sm font-medium">{step}</div>
             </div>
