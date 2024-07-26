@@ -27,14 +27,17 @@ const Index = () => {
         <div className="flex justify-between items-center relative">
           {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
             <div key={step} className="flex flex-col items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 420 83.999999">
-                <g clipPath={`url(#clip-path-${index})`}>
-                  <path fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} d="M89.34375 30L9.632812 30C4.066406 30 0.792969 36.292969 3.976562 40.894531L12.28125 52.886719C13.902344 55.226562 13.910156 58.324219 12.304688 60.671875L4.085938 72.683594C0.933594 77.28125 4.214844 83.542969 9.769531 83.542969L89.34375 83.542969C91.613281 83.542969 93.734375 82.417969 95.027344 80.542969L108.640625 60.648438C110.238281 58.316406 110.238281 55.234375 108.640625 52.894531L95.027344 33C93.734375 31.125 91.609375 30 89.34375 30Z" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" viewBox="0 0 210 105" preserveAspectRatio="xMidYMid meet">
+                <defs>
+                  <clipPath id={`gaugeMask-${index}`}>
+                    <path d="M 0 105 C 0 47.011719 47.011719 0 105 0 C 162.988281 0 210 47.011719 210 105 L 172.199219 105 C 172.199219 67.886719 142.113281 37.800781 105 37.800781 C 67.886719 37.800781 37.800781 67.886719 37.800781 105 Z M 0 105 " />
+                  </clipPath>
+                </defs>
+                <g clipPath={`url(#gaugeMask-${index})`}>
+                  <rect x="-21" width="252" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} y="-10.5" height="125.999995" />
                 </g>
-                <g clipPath={`url(#circle-clip-path-${index})`}>
-                  <circle cx="40" cy="30" r="30" fill="#fefbff" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="3" />
-                </g>
-                <text x="40" y="36" textAnchor="middle" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} fontSize="24" fontWeight="bold">
+                <circle cx="105" cy="105" r="30" fill="#fefbff" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="3" />
+                <text x="105" y="115" textAnchor="middle" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} fontSize="24" fontWeight="bold">
                   {index + 1}
                 </text>
               </svg>
