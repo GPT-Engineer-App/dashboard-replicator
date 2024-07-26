@@ -27,17 +27,28 @@ const Index = () => {
         <div className="flex justify-between items-center relative">
           {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
             <div key={step} className="flex flex-col items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="120" height="60" viewBox="0 0 210 105" preserveAspectRatio="xMidYMid meet">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="145" height="112" viewBox="0 0 144.9 112">
                 <defs>
-                  <clipPath id={`gaugeMask-${index}`}>
-                    <path d="M 0 105 C 0 47.011719 47.011719 0 105 0 C 162.988281 0 210 47.011719 210 105 L 172.199219 105 C 172.199219 67.886719 142.113281 37.800781 105 37.800781 C 67.886719 37.800781 37.800781 67.886719 37.800781 105 Z M 0 105 " />
+                  <clipPath id={`clip-arrow-${index}`}>
+                    <rect x="0.4" y="40.5" width="144" height="71"/>
+                  </clipPath>
+                  <clipPath id={`clip-circle-${index}`}>
+                    <rect x="30.8" y="0.5" width="80" height="80"/>
+                  </clipPath>
+                  <clipPath id={`clip-inner-circle-${index}`}>
+                    <circle cx="70.8" cy="40.5" r="40"/>
                   </clipPath>
                 </defs>
-                <g clipPath={`url(#gaugeMask-${index})`}>
-                  <rect x="-21" width="252" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} y="-10.5" height="125.999995" />
+                <g clipPath={`url(#clip-arrow-${index})`}>
+                  <path fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} d="M116.9,40.5H10.6c-7.4,0-11.8,8.4-7.5,14.5l11.1,16c2.2,3.1,2.2,7.2,0,10.4l-11,16c-4.2,6.1,0.2,14.5,7.6,14.5h106.1c3,0,5.9-1.5,7.6-4l18.2-26.5c2.1-3.1,2.1-7.2,0-10.3l-18.2-26.5C122.7,42,119.9,40.5,116.9,40.5z"/>
                 </g>
-                <circle cx="105" cy="105" r="30" fill="#fefbff" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="3" />
-                <text x="105" y="115" textAnchor="middle" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} fontSize="24" fontWeight="bold">
+                <g clipPath={`url(#clip-circle-${index})`}>
+                  <g clipPath={`url(#clip-inner-circle-${index})`}>
+                    <path fill="#FEFBFF" d="M30.8,0.5h80v80h-80V0.5z"/>
+                    <circle cx="70.8" cy="40.5" r="40" fill="none" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="4"/>
+                  </g>
+                </g>
+                <text x="70.8" y="50.5" textAnchor="middle" fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} fontSize="24" fontWeight="bold">
                   {index + 1}
                 </text>
               </svg>
