@@ -109,7 +109,7 @@ const Index = () => {
         <div>
           <h3 className="text-lg font-semibold mb-2">Data 3</h3>
           <div className="flex flex-wrap justify-center sm:justify-between -mx-2">
-            {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((title, index) => (
+            {['Title 1', 'Title 2', 'Title 3', 'Title 4'].map((title, index) => (
               <div key={title} className="text-center w-1/2 sm:w-1/4 lg:w-auto px-2 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 120 120" className="mx-auto max-w-[100px]">
                   <circle cx="60" cy="60" r="60" fill="#e5d5eb" />
@@ -126,7 +126,7 @@ const Index = () => {
                     {data1Values[index]}
                   </text>
                 </svg>
-                <div className="mt-2 text-sm font-medium">{title}</div>
+                <div className="mt-1 text-sm font-medium">{title}</div>
               </div>
             ))}
           </div>
