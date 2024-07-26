@@ -48,20 +48,20 @@ const Index = () => {
         <div className="flex flex-wrap justify-between items-center relative">
           {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
             <div key={step} className={`flex flex-col items-center w-1/2 sm:w-1/4 mb-4 sm:mb-0 ${index * 25 <= gaugeValue ? 'opacity-100' : 'opacity-30'}`}>
-              <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 144.9 112" className="max-w-[145px]">
+              <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 144.9 117.6" className="max-w-[145px]">
                 <defs>
                   <clipPath id={`clip-arrow-${index}`}>
-                    <rect x="0.4" y="40.5" width="144" height="71"/>
+                    <rect x="0.4" y="46.1" width="144" height="71"/>
                   </clipPath>
                   <clipPath id={`clip-circle-${index}`}>
-                    <circle cx="70.8" cy="40.5" r="35"/>
+                    <circle cx="70.8" cy="46.1" r="35"/>
                   </clipPath>
                 </defs>
                 <g clipPath={`url(#clip-arrow-${index})`}>
-                  <path fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} d="M116.9,40.5H10.6c-7.4,0-11.8,8.4-7.5,14.5l11.1,16c2.2,3.1,2.2,7.2,0,10.4l-11,16c-4.2,6.1,0.2,14.5,7.6,14.5h106.1c3,0,5.9-1.5,7.6-4l18.2-26.5c2.1-3.1,2.1-7.2,0-10.3l-18.2-26.5C122.7,42,119.9,40.5,116.9,40.5z"/>
+                  <path fill={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} d="M116.9,46.1H10.6c-7.4,0-11.8,8.4-7.5,14.5l11.1,16c2.2,3.1,2.2,7.2,0,10.4l-11,16c-4.2,6.1,0.2,14.5,7.6,14.5h106.1c3,0,5.9-1.5,7.6-4l18.2-26.5c2.1-3.1,2.1-7.2,0-10.3l-18.2-26.5C122.7,47.6,119.9,46.1,116.9,46.1z"/>
                 </g>
-                <circle cx="70.8" cy="40.5" r="40" fill="#FEFBFF" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="4"/>
-                <image href={stepIcons[index]} x="42.8" y="12.5" width="57.5" height="57.5" clipPath={`url(#clip-circle-${index})`} />
+                <circle cx="70.8" cy="46.1" r="40" fill="#FEFBFF" stroke={['#ffa945', '#ff5732', '#a97aff', '#563aef'][index]} strokeWidth="4"/>
+                <image href={stepIcons[index]} x="42.8" y="18.1" width="57.5" height="57.5" clipPath={`url(#clip-circle-${index})`} />
               </svg>
               <div className="mt-2 text-sm font-medium">{step}</div>
             </div>
