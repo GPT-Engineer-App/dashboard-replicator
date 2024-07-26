@@ -134,10 +134,10 @@ const Index = () => {
         
         <div>
           <h3 className="text-lg font-semibold mb-2">Data 4</h3>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-center items-center mb-4">
             <DynamicGauge percentage={gaugeValue} />
           </div>
-          <div className="relative w-full h-12 mt-4">
+          <div className="relative w-full h-12">
             <div className="absolute w-full h-6 bg-gray-200 rounded-full top-3"></div>
             <div className="absolute h-6 bg-blue-600 rounded-full top-3" style={{width: `${gaugeValue}%`}}></div>
             <input

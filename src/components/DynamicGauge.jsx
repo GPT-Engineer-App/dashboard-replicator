@@ -30,7 +30,6 @@ const DynamicGauge = ({ percentage }) => {
           </g>
         </svg>
       </g>
-      <circle cx="140" cy="140" r="5" fill="#333" />
     </svg>
   );
 };
