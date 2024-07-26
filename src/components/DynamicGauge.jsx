@@ -18,7 +18,16 @@ const DynamicGauge = ({ percentage }) => {
         <rect x="-21" width="252" fill="#ff5732" y="-10.5" height="125.999995" />
       </g>
       <g transform={`rotate(${angle}, 105, 105)`}>
-        <path d="M 105,105 L 100,30 Q 105,20 110,30 Z" fill="#563aef" />
+        <svg x="90" y="40" width="29.5" height="127" viewBox="0 0 29.5 127">
+          <defs>
+            <clipPath id="needleClip">
+              <rect width="29.5" height="127"/>
+            </clipPath>
+          </defs>
+          <g clipPath="url(#needleClip)">
+            <path d="M28.3,113.2c0,7.7-6.3,13.9-14,13.8c-7.7,0-13.9-6.3-13.8-14L12.1,3.2c0-1,0.5-1.9,1.4-2.4c0.9-0.5,1.9-0.5,2.8,0c0.9,0.5,1.4,1.4,1.4,2.4L28.3,113.2z" fill="#563AEF"/>
+          </g>
+        </svg>
       </g>
       <circle cx="105" cy="105" r="5" fill="#333" />
       <text x="105" y="120" textAnchor="middle" fill="#333" fontSize="14" fontWeight="bold">
