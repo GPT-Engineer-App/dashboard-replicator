@@ -7,6 +7,10 @@ const DynamicGauge = ({ percentage }) => {
   // Calculate the angle for the gauge needle
   const angle = (clampedPercentage / 100) * 180 - 90;
 
+  // Calculate the pivot point (1/8 from the bottom of the needle)
+  const needleHeight = 127;
+  const pivotOffset = needleHeight * 7/8;
+
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="280" height="140" viewBox="0 0 210 105" preserveAspectRatio="xMidYMid meet">
       <defs>
@@ -18,13 +22,13 @@ const DynamicGauge = ({ percentage }) => {
         <rect x="-21" width="252" fill="#ff5732" y="-10.5" height="125.999995" />
       </g>
       <g transform={`rotate(${angle}, 105, 105)`}>
-        <svg x="90" y="40" width="29.5" height="127" viewBox="0 0 29.5 127">
+        <svg x="90" y="-22" width="29.5" height="127" viewBox="0 0 29.5 127">
           <defs>
             <clipPath id="needleClip">
               <rect width="29.5" height="127"/>
             </clipPath>
           </defs>
-          <g clipPath="url(#needleClip)">
+          <g clipPath="url(#needleClip)" transform={`translate(0 ${pivotOffset}) rotate(180 14.75 0)`}>
             <path d="M28.3,113.2c0,7.7-6.3,13.9-14,13.8c-7.7,0-13.9-6.3-13.8-14L12.1,3.2c0-1,0.5-1.9,1.4-2.4c0.9-0.5,1.9-0.5,2.8,0c0.9,0.5,1.4,1.4,1.4,2.4L28.3,113.2z" fill="#563AEF"/>
           </g>
         </svg>
