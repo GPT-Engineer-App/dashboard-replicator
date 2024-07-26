@@ -76,9 +76,9 @@ const Index = () => {
               {['Item 1', 'Item 2', 'Item 3', 'Item 4'].map((item, index) => (
                 <div key={item} className={`flex items-center ${index * 25 <= gaugeValue ? 'opacity-100' : 'opacity-30'}`}>
                   <span className="w-12 text-xs sm:text-sm text-right mr-2">{item}</span>
-                  <div className="w-full bg-gray-200 h-4 sm:h-6 flex rounded-r-full overflow-hidden">
+                  <div className="w-full bg-gray-200 h-4 sm:h-6 flex rounded-full overflow-hidden">
                     <div
-                      className={`${['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-600'][index]} h-full transition-all duration-500 ease-in-out ${index === 3 ? 'rounded-r-full' : ''}`}
+                      className={`${['bg-yellow-400', 'bg-orange-400', 'bg-purple-400', 'bg-blue-600'][index]} h-full transition-all duration-500 ease-in-out rounded-full`}
                       style={{
                         width: `${data1Values[index] * 4}%`,
                       }}
@@ -112,7 +112,7 @@ const Index = () => {
             {['Title 1', 'Title 2', 'Title 3', 'Title 4'].map((title, index) => (
               <div key={title} className="text-center w-1/2 sm:w-1/4 lg:w-auto px-2 mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 120 120" className="mx-auto max-w-[100px]">
-                  <circle cx="60" cy="60" r="60" fill="#e5d5eb" />
+                  <circle cx="60" cy="60" r="60" fill={data1Values[index] === 25 ? ["#ffa945", "#ff5732", "#a97aff", "#563aef"][index] : "#e5d5eb"} />
                   <path
                     d={`M 60 60 L 60 0 A 60 60 0 ${data1Values[index] > 12.5 ? 1 : 0} 1 ${
                       60 + 60 * Math.sin((data1Values[index] / 25) * 2 * Math.PI)
