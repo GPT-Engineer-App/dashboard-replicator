@@ -4,6 +4,7 @@ import { Card } from "@/components/ui/card";
 import DynamicGauge from "@/components/DynamicGauge";
 import { useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
+import ConfettiAnimation from "@/components/ConfettiAnimation";
 
 const stepIcons = [
   "https://ik.imagekit.io/libralab/Sandbox/001_Dashboard/step1.png",
@@ -42,6 +43,7 @@ const Index = () => {
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 p-4">
+      {gaugeValue === 100 && <ConfettiAnimation />}
       <Card className="w-full max-w-3xl p-4 sm:p-8 space-y-4 sm:space-y-6 relative overflow-hidden">
         <div className="absolute top-0 left-0 w-16 h-16 bg-blue-500 transform -translate-x-1/2 -translate-y-1/2 rounded-br-full"></div>
         <div className="absolute top-0 right-0 w-16 h-16 bg-red-500 transform translate-x-1/2 -translate-y-1/2 rounded-bl-full"></div>
