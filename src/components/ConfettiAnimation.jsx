@@ -1,11 +1,11 @@
 import React from 'react';
-import { DotLottiePlayer } from '@lottiefiles/dotlottie-react';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 const ConfettiAnimation = () => {
   return (
     <div className="fixed inset-0 pointer-events-none z-50 flex items-center justify-center">
-      <DotLottiePlayer
-        src="https://lottie.host/6be25d85-f1ef-4814-9e6b-45a790e6aa14/PQvGO74Q3D.json"
+      <DotLottieReact
+        src="https://lottie.host/f8dcce66-2773-48d8-ad20-247fe5fdb1ba/9ti3ErknrQ.lottie"
         autoplay
         loop
         style={{ width: '300px', height: '300px' }}
