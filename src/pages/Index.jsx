@@ -120,7 +120,15 @@ const Index = () => {
             <h3 className="text-lg font-semibold mb-2">Data 2</h3>
             <div className="grid grid-cols-8 sm:grid-cols-6 gap-1">
               {Array(24).fill().map((_, i) => (
-                <svg key={i} className="w-5 sm:w-7 h-7 sm:h-9" viewBox="0 0 22.76 53.39">
+                <svg 
+                  key={i} 
+                  className={`w-5 sm:w-7 h-7 sm:h-9 transition-fade`} 
+                  viewBox="0 0 22.76 53.39"
+                  style={{
+                    opacity: i < Math.floor(gaugeValue / 100 * 24) ? 1 : 0.3,
+                    transitionDelay: `${i * 20}ms`
+                  }}
+                >
                   <path
                     className={`${i < Math.floor(gaugeValue / 100 * 24) ? 'fill-orange-500' : 'fill-gray-300'}`}
                     d="M11.38,0C8.72,0,6.34,2.11,6.34,5.14V6.65c0,2.72,2.42,5.14,5.14,5.14s5.14-2.42,5.14-5.14V5.14C16.62,2.11,14.2,0,11.38,0 M6.24,22.98s-.3-.3-.3,0L2.31,31.44C1.7,32.65.49,33.56-1.02,33.56h-1.51c-.3,0-.6,0-.6-.3-.3-.3-.3-.61,0-.91l4.53-10.58,1.52-4.23c1.21-2.42,3.63-4.23,6.35-4.23h4.23c2.72,0,5.14,1.81,6.35,4.23l1.51,4.23,4.54,10.58c.3.3.3.61,0,.91,0,.3-.3.3-.6.3h-1.52c-1.51,0-2.72-.91-3.32-2.12l-3.63-8.46c0-.3-.3,0-.3,0l1.51,10.58,1.82,19.35c0,.3-.3.3-.3.6-.3,0-.3.3-.61.3h-1.21c-1.81,0-3.32-1.21-3.32-3.02l-2.72-16.33h-.6l-2.72,16.33c0,1.81-1.52,3.02-3.33,3.02H5.85c-.3,0-.3-.3-.6-.3,0-.3-.3-.3-.3-.6l1.81-19.35,1.51-10.58Z"
@@ -135,7 +143,14 @@ const Index = () => {
           <h3 className="text-lg font-semibold mb-2">Data 3</h3>
           <div className="flex flex-wrap justify-center sm:justify-between -mx-2">
             {['Title 1', 'Title 2', 'Title 3', 'Title 4'].map((title, index) => (
-              <div key={title} className="text-center w-1/2 sm:w-1/4 lg:w-auto px-2 mb-4">
+              <div 
+                key={title} 
+                className="text-center w-1/2 sm:w-1/4 lg:w-auto px-2 mb-4 transition-fade"
+                style={{
+                  opacity: data1Values[index] > 0 ? 1 : 0.3,
+                  transitionDelay: `${index * 100}ms`
+                }}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" viewBox="0 0 120 120" className="mx-auto max-w-[100px]">
                   <circle cx="60" cy="60" r="60" fill={data1Values[index] === 25 ? ["#ffa945", "#ff5732", "#a97aff", "#563aef"][index] : "#e5d5eb"} />
                   <path
