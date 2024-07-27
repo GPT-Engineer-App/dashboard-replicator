@@ -59,7 +59,20 @@ const Index = () => {
         
         <div className="flex flex-wrap justify-between items-center relative">
           {['Step 1', 'Step 2', 'Step 3', 'Step 4'].map((step, index) => (
-            <div key={step} className={`flex flex-col items-center w-1/2 sm:w-1/4 mb-4 sm:mb-0 ${index * 25 <= gaugeValue ? 'opacity-100' : 'opacity-30'}`}>
+            <div 
+              key={step} 
+              className={`flex flex-col items-center w-1/2 sm:w-1/4 mb-4 sm:mb-0 transition-step ${
+                index * 25 <= gaugeValue 
+                  ? 'opacity-100 transform translate-x-0' 
+                  : 'opacity-0 transform -translate-x-full'
+              } ${
+                index > 0 ? 'sm:absolute' : ''
+              }`}
+              style={{
+                left: index > 0 ? `${(index * 25)}%` : 'auto',
+                zIndex: 4 - index
+              }}
+            >
               <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" width="100%" height="auto" viewBox="0 0 144.9 117.6" className="max-w-[145px]">
                 <defs>
                   <clipPath id={`clip-arrow-${index}`}>
