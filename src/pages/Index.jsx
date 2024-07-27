@@ -2,7 +2,8 @@
 
 import { Card } from "@/components/ui/card";
 import DynamicGauge from "@/components/DynamicGauge";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const stepIcons = [
   "https://ik.imagekit.io/libralab/Sandbox/001_Dashboard/step1.png",
@@ -16,7 +17,18 @@ import step3Icon from "/placeholder.svg";
 import step4Icon from "/placeholder.svg";
 
 const Index = () => {
-  const [gaugeValue, setGaugeValue] = useState(75); // Initial value for the gauge
+  const [searchParams] = useSearchParams();
+  const [gaugeValue, setGaugeValue] = useState(75); // Default initial value
+
+  useEffect(() => {
+    const percentParam = searchParams.get('percent');
+    if (percentParam !== null) {
+      const parsedPercent = parseInt(percentParam, 10);
+      if (!isNaN(parsedPercent) && parsedPercent >= 0 && parsedPercent <= 100) {
+        setGaugeValue(parsedPercent);
+      }
+    }
+  }, [searchParams]);
 
   // Calculate dynamic values for Data 1 and Data 3
   const data1Values = useMemo(() => {
